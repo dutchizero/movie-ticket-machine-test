@@ -20,7 +20,7 @@ class Home extends React.Component {
 
   async componentDidMount() {
     // Get data from API and Assign to state
-    await fetch("http://www.mocky.io/v2/5af178123000003700ba7ff2",{method:'get'})
+    await fetch("https://www.mocky.io/v2/5af178123000003700ba7ff2",{method:'get'})
       .then(res=>res.json())
       .then(
         (result)=>{
