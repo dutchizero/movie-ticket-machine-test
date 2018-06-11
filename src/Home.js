@@ -219,6 +219,30 @@ class Home extends React.Component {
     }
   }
 
+  //Reset all value in input form
+  setDefult(){
+    let TempArr = this.state.Data;
+    for (var i = 0; i < this.state.Data.length; i++) {
+      //console.log(this.state.Data[i]);
+      if(i==0){
+        this.props.setPricePerTicket(this.state.Data[i].price);
+        this.props.setMovie(this.state.Data[i].name);
+        this.props.setImgage(this.state.Data[i].image);
+        TempArr[i].className="demo w3-hover-opacity-off";
+        document.getElementById("Selector").value = this.state.Data[i].id;
+        this.props.setTicket(0);
+        this.props.setPrice(0);
+        document.getElementById("ticket").value=NaN;
+        document.getElementById("received").value=NaN;
+        this.props.setReceivedMoney(0);
+        this.props.setExchaneMoney(0);
+        this.ValidateInput(0,0,this.props.data.ExchageMoney,0);
+      }else{
+        TempArr[i].className="demo w3-opacity w3-hover-opacity-off";
+      }
+    }
+  }
+
   // Rending Html
   render() {
     const list=this.state.Data;
@@ -246,20 +270,28 @@ class Home extends React.Component {
               </div>
               <div class="col-sm-4">
                 <br/>
-                <form style={{fontSize:20}}>
+                <form style={{fontSize:20}} id = "MovieForm">
+                  
                   Please select movie
                   <select id="Selector" style={{fontSize:16,height:35}} class="form-control" onChange={this.setMovie.bind(this)}>
                     {listData}
                   </select>
+                  
+                  Price per one ticket : {this.props.data.PricePerTicket}<br/><br/>
+                  
                   Please input number of ticket 
                   <input style={{fontSize:16,height:35}} class="form-control" id = "ticket" type="number" min = "0" onChange={this.setTicket.bind(this)}/>
                   <p style={{color:'red'}}>{this.state.TicketMessage}</p>
+                  
                   Total price {this.props.data.Price} baht <br/><br/><input type="hidden" value={this.props.data.Price} id="Price"/>
+                  
                   Money received 
                   <input style={{fontSize:16,height:30}} class="form-control" id = "received" type="number" min = "0" onChange={this.setReceivedMoney.bind(this)}/><br/>
                   <p style={{color:'red'}}>{this.state.MoneyReceivedMessage}</p>
+                  
                   <Link to="Summary"><button style={{fontSize:16,height:40,width:70}} disabled={this.state.isBtnDisable} class="btn btn-success" type = "submit">ซื้อ</button></Link>
                 </form>
+                <button class="btn btn-danger" onClick={this.setDefult.bind(this)} style={{fontSize:16,height:40,width:70,textAlign:'right'}}>ล้างค่า</button>
               </div>
             </div>
           </div>
