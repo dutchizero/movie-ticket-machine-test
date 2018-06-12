@@ -21,7 +21,7 @@ class Summary extends React.Component {
 	      	if(ObjDisplay[0]!='-'){
 	      		return ([<tr><td><div class={list.className}><p>{list.BankOrCoin}</p></div></td><td>   x {list.NumberOfBankOrCoin}</td></tr>])
 	      	}else{
-	      		return '-';
+	      		return (<tr><td>-</td><td>-</td></tr>);
 	      	}
 	      }
 	    ));
