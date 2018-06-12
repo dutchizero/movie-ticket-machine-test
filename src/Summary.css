@@ -1,0 +1,85 @@
+table{
+	width: 100%
+}
+
+table td{
+	text-align: center;
+}
+
+table th{
+	text-align: center;
+}
+
+p{
+	margin-top: 5%
+}
+
+.BankOrCoin{
+	display: inline-block;
+	margin-top: 10px
+}
+
+.BankOrCoin.Bank {
+    border: 50%;
+}
+
+.BankOrCoin.Bank.thousand {
+    height: 50px;
+    width: 50%;
+    background-color: #d2a679;
+    margin-top: 10px
+}
+
+.BankOrCoin.Bank.fivehundred {
+    height: 45px;
+    width: 45%;
+    background-color: #b366ff;
+    /*display: inline-block;*/
+}
+
+.BankOrCoin.Bank.hundred {
+    height: 40px;
+    width: 40%;
+    background-color: #ff6666;
+}
+
+.BankOrCoin.Bank.fifty {
+    height: 35px;
+    width: 35%;
+    background-color: #66c2ff;
+}
+
+.BankOrCoin.Bank.twenty {
+    height: 30px;
+    width: 30%;
+    background-color: #80ff80;
+}
+
+.BankOrCoin.Coin {
+    border-radius: 50%;
+}
+
+.BankOrCoin.Coin.ten {
+	background-color: #ffb31a;
+	border: 9px solid #bbb;
+    height: 48px;
+    width: 48px;
+}
+
+.BankOrCoin.Coin.five {
+	background-color: #bbb;
+    height: 30px;
+    width: 30px;
+}
+
+.BankOrCoin.Coin.two {
+	background-color: #ffb31a;
+    height: 25px;
+    width: 25px;
+}
+
+.BankOrCoin.Coin.one {
+	background-color: #bbb;
+    height: 25px;
+    width: 25px;
+}

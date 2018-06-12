@@ -9,6 +9,7 @@ class Home extends React.Component {
       Data: [],
       isLoaded: false,
       ArrMoney: [1000, 500, 100, 50, 20, 10, 5, 2, 1],
+      ArrStrMoney:['thousand','fivehundred','hundred','fifty','twenty','ten','five','two','one'],
       TicketMessage: '',
       MoneyReceivedMessage: '',
       isTicketCorrect: false,
@@ -190,11 +191,7 @@ class Home extends React.Component {
             //console.log("Arrmoney:"+this.state.ArrMoney[IndexArrMoney]);
             //console.log("count:"+count);
             if(count>0){
-              let TempObj={
-                BankOrCoin:this.state.ArrMoney[IndexArrMoney],
-                NumberOfBankOrCoin:count
-              }
-              tempArrObjChange.push(TempObj);
+              this.PushMoneyObject(this.state.ArrMoney[IndexArrMoney],count,this.state.ArrStrMoney[IndexArrMoney],tempArrObjChange);
             }
             IndexArrMoney++;
             count=0;
@@ -202,11 +199,7 @@ class Home extends React.Component {
         }
         //Make sure that last ChangeObject has been add
         if(count>0){
-          let TempObj={
-            BankOrCoin:this.state.ArrMoney[IndexArrMoney],
-            NumberOfBankOrCoin:count
-          }
-          tempArrObjChange.push(TempObj);
+          this.PushMoneyObject(this.state.ArrMoney[IndexArrMoney],count,this.state.ArrStrMoney[IndexArrMoney],tempArrObjChange);
         }else{
           count=0;
         }
@@ -241,6 +234,23 @@ class Home extends React.Component {
         TempArr[i].className="demo w3-opacity w3-hover-opacity-off";
       }
     }
+  }
+
+  //Push money object
+  PushMoneyObject(BankOrCoin,count,StringMoney,tempArrObjChange){
+    let className='';
+    if(BankOrCoin>10){
+      className="BankOrCoin Bank "+StringMoney;
+    }else{
+      className="BankOrCoin Coin "+StringMoney;
+    }
+    let TempObj={
+        BankOrCoin:BankOrCoin,
+        NumberOfBankOrCoin:count,
+        className:className
+    }
+    //console.log(TempObj);
+    tempArrObjChange.push(TempObj);
   }
 
   // Rending Html

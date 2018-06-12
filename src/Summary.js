@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import './Summary.css';
 
 class Summary extends React.Component {
   // Rending Html
@@ -18,7 +19,7 @@ class Summary extends React.Component {
       	const list=ObjDisplay;
 	    const listData=list.map((list=>{
 	      	if(ObjDisplay[0]!='-'){
-	      		return (<tr>{list.BankOrCoin} x {list.NumberOfBankOrCoin}</tr>)
+	      		return ([<tr><td><div class={list.className}><p>{list.BankOrCoin}</p></div></td><td>   x {list.NumberOfBankOrCoin}</td></tr>])
 	      	}else{
 	      		return '-';
 	      	}
@@ -37,12 +38,13 @@ class Summary extends React.Component {
 				      			<img src={this.props.data.Image}/>
 				      		</div>
 				      		<div class="col-sm-7" style={{marginTop:50}}>
-						        {this.props.data.MovieName} x {this.props.data.Ticket}<br/>
-						        Total price : {this.props.data.Price} baht <br/>
-						        Money received : {this.props.data.MoneyReceived} baht<br/>
-						        Exchange money : {this.props.data.ExchangeMoney} baht<br/><br/>
+						        <b>Movie name:</b> {this.props.data.MovieName} x {this.props.data.Ticket}<br/>
+						        <b>Total price :</b> {this.props.data.Price} baht <br/>
+						        <b>Money received :</b> {this.props.data.MoneyReceived} baht<br/>
+						        <b>Exchange money :</b> {this.props.data.ExchangeMoney} baht<br/><br/>
+
 						        <table>
-						        	<tr><th>Exchange banknote or coin</th></tr>
+						        	<tr><th>Banknote or Coin</th><th>Number of Banknote or Coin</th></tr>
 						        	{listData}
 						        </table><br/><br/>
 						     	<button style={{fontSize:16,height:'auto',width:'auto',textAlign:'right'}} class="btn btn-success" type = "submit" onClick={this.link}>กลับไปยังหน้าแรก</button>
